@@ -1,7 +1,7 @@
 {
   "id": "org.taisei_project.Taisei",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "18.08",
+  "runtime-version": "19.08",
   "sdk": "org.freedesktop.Sdk",
   "command": "taisei",
   "rename-icon": "taisei",
@@ -15,9 +15,14 @@
   ],
   "modules": [
     {
-    "name": "libzip",
-    "buildsystem": "cmake-ninja",
-    "cleanup": [ "/bin", "/share" ],
+      "name": "libzip",
+      "buildsystem": "cmake-ninja",
+      "cleanup": [ "/bin", "/share", "/include", "/lib/pkgconfig" ],
+      "config-opts": [
+        "-DENABLE_COMMONCRYPTO=OFF",
+        "-DENABLE_GNUTLS=OFF",
+        "-DENABLE_OPENSSL=OFF"
+      ],
       "sources": [
         {
           "type": "archive",
@@ -27,11 +32,57 @@
       ]
     },
     {
-      "name": "taisei",
+      "name": "opusfile",
+      "buildsystem": "autotools",
       "config-opts": [
-        "-Ddocs=false"
+        "--disable-doc",
+        "--disable-examples",
+        "--disable-http",
+        "--disable-static",
+        "--enable-shared"
       ],
+      "cleanup": [ "/bin", "/share", "/include", "/lib/pkgconfig", "/lib/*.la" ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://archive.mozilla.org/pub/opus/opusfile-0.9.tar.gz",
+          "sha256": "f75fb500e40b122775ac1a71ad80c4477698842a8fe9da4a1b4a1a9f16e4e979"
+        }
+      ]
+    },
+    {
+      "name": "SDL2_mixer",
+      "buildsystem": "autotools",
+      "cleanup": [ "/include", "/lib/pkgconfig", "/lib/*.la" ],
+      "config-opts": [
+        "--disable-music-flac",
+        "--disable-music-midi",
+        "--disable-music-mod-mikmod",
+        "--disable-music-mod-modplug",
+        "--disable-music-mp3",
+        "--disable-music-ogg",
+        "--disable-music-opus-shared",
+        "--disable-sdltest",
+        "--disable-static",
+        "--enable-music-opus",
+        "--enable-shared"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz",
+          "sha256": "b4cf5a382c061cd75081cf246c2aa2f9df8db04bdda8dcdc6b6cca55bede2419"
+        }
+      ]
+    },
+    {
+      "name": "taisei",
       "buildsystem": "meson",
+      "config-opts": [
+        "--wrap-mode=nodownload",
+        "-Ddocs=false",
+        "-Dstrip=false"
+      ],
       "sources": [
         {
           "type": "file",
@@ -39,8 +90,8 @@
         },
         {
           "type": "archive",
-          "url": "https://github.com/taisei-project/taisei/releases/download/v1.3/taisei-v1.3.tar.xz",
-          "sha256": "4d6ede1e8a512eedec76cc9105022b0f5a361d23841ec1607d06a22c170b843a"
+          "url": "https://github.com/taisei-project/taisei/releases/download/v1.3.1/taisei-v1.3.1.tar.xz",
+          "sha256": "86583a3a710093e63014a5ae6b68251a069cb25ada06c6f8d734f85f31adc985"
         }
       ],
       "post-install": [
