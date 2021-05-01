@@ -5,7 +5,7 @@
   <project_license>MIT and CC-BY-4.0 and CC0-1.0</project_license>
   <metadata_license>CC0-1.0</metadata_license>
   <name>Taisei</name>
-  <summary>Bullet hell shoot 'em up game set in a fantasy land</summary>
+  <summary>An open source Touhou Project fangame</summary>
   <description>
     <p>
     Taisei (lit. Occident) is a free and open-source fangame of the Tōhō series, written in C using SDL2 and OpenGL.
@@ -23,7 +23,7 @@
   </keywords>
   <url type="homepage">https://taisei-project.org</url>
   <url type="bugtracker">https://github.com/taisei-project/taisei/issues</url>
-  <url type="help">https://github.com/taisei-project/taisei/blob/v1.3.1/doc/GAME.rst</url>
+  <url type="help">https://github.com/taisei-project/taisei/blob/v1.3.2/doc/GAME.rst</url>
   <screenshots>
     <screenshot type="default">
       <image>https://taisei-project.org/static/screenshots/007_1.3.1/taisei_20190922_20-38-06-359.png</image>
@@ -45,6 +45,54 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="1.3.2" date="2021-05-01">
+      <url>https://taisei-project.org/news/0013_v1.3.2</url>
+      <description>
+        <p>This is a stable maintenance release. It features various bugfixes, optimizations, and minor features backported from the v1.4 development tree.</p>
+      </description>
+      <artifacts>
+        <artifact type="binary" platform="x86_64-linux-gnu" bundle="tarball">
+          <location>https://github.com/taisei-project/taisei/releases/download/v1.3.2/Taisei-1.3.2-linux-x86_64.tar.xz</location>
+          <checksum type="SHA256">ecfa8348a7f29eb46cfc167ab7fec07bc82fad2eb803b4dab430b3389023cbc2</checksum>
+          <size type="download">66657688</size>
+        </artifact>
+        <artifact type="binary" platform="x86_64-apple-darwin15">
+          <location>https://github.com/taisei-project/taisei/releases/download/v1.3.2/Taisei-1.3.2-macOS-x86_64.dmg</location>
+          <checksum type="SHA256">ee0aabe6178eea355efe88d71520e104795bdd7a43a68f7c59939245172868bb</checksum>
+          <size type="download">65624530</size>
+        </artifact>
+        <artifact type="binary" platform="i686-w64-windows-gnu">
+          <location>https://github.com/taisei-project/taisei/releases/download/v1.3.2/Taisei-1.3.2-setup-x86.exe</location>
+          <checksum type="SHA256">ceb13625b1faf9fa7a6267bda63c062ccf240235248751e99d5fe9eb78363e81</checksum>
+          <size type="download">70513047</size>
+        </artifact>
+        <artifact type="binary" platform="x86_64-w64-windows-gnu">
+          <location>https://github.com/taisei-project/taisei/releases/download/v1.3.2/Taisei-1.3.2-setup-x86_64.exe</location>
+          <checksum type="SHA256">88d9260405cc3d83c48e08ceed1b917df68b3b67780438c2c3f4d8f960feb321</checksum>
+          <size type="download">70878479</size>
+        </artifact>
+        <artifact type="binary" platform="aarch64-switch-elf">
+          <location>https://github.com/taisei-project/taisei/releases/download/v1.3.2/Taisei-1.3.2-switch-aarch64.zip</location>
+          <checksum type="SHA256">d80cb3e419bfb7b3ac1dd3d078bef4b6d56b9604ce66628ea440c11191947dbe</checksum>
+          <size type="download">68114541</size>
+        </artifact>
+        <artifact type="binary" platform="i686-w64-windows-gnu">
+          <location>https://github.com/taisei-project/taisei/releases/download/v1.3.2/Taisei-1.3.2-windows-x86.zip</location>
+          <checksum type="SHA256">057a8698712f44e6db07f49c0ad667a536f3143efadd1d7dc1c93ce75d12135a</checksum>
+          <size type="download">70363386</size>
+        </artifact>
+        <artifact type="binary" platform="x86_64-w64-windows-gnu">
+          <location>https://github.com/taisei-project/taisei/releases/download/v1.3.2/Taisei-1.3.2-windows-x86_64.zip</location>
+          <checksum type="SHA256">b7dd2960435c04fae78711d51608d1db79b504f6312ca2b5a53e186897996920</checksum>
+          <size type="download">70727895</size>
+        </artifact>
+        <artifact type="source" bundle="tarball">
+          <location>https://github.com/taisei-project/taisei/releases/download/v1.3.2/taisei-v1.3.2.tar.xz</location>
+          <checksum type="SHA256">dbc05f1b5c31981d8711130ac283355b7bfad403895f4096a6bb7e9a3d73a3bc</checksum>
+          <size type="download">70481856</size>
+        </artifact>
+      </artifacts>
+    </release>
     <release version="1.3.1" date="2019-09-29">
       <url>https://taisei-project.org/news/0012_v1.3.1</url>
       <description>

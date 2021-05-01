@@ -1,0 +1,65 @@
+id: org.taisei_project.Taisei
+runtime: org.freedesktop.Platform
+runtime-version: '20.08'
+sdk: org.freedesktop.Sdk
+command: taisei
+rename-icon: taisei
+rename-desktop-file: taisei.desktop
+finish-args:
+  - '--socket=pulseaudio'
+  - '--socket=wayland'
+  - '--socket=fallback-x11'
+  - '--share=ipc'
+  - '--device=all'
+modules:
+  - name: libzip
+    buildsystem: cmake-ninja
+    cleanup:
+      - /bin
+      - /share
+      - /include
+      - /lib/pkgconfig
+      - /lib/cmake
+    config-opts:
+      - '-DENABLE_COMMONCRYPTO=OFF'
+      - '-DENABLE_GNUTLS=OFF'
+      - '-DENABLE_OPENSSL=OFF'
+    sources:
+      - type: archive
+        url: 'https://github.com/nih-at/libzip/archive/v1.7.3.tar.gz'
+        sha256: c0a086901dfc8bda0fb8695f2d3c8050ed140b7899536b9348bcc72b47b2f307
+  - name: gamemode
+    buildsystem: meson
+    cleanup:
+      - /lib/pkgconfig
+      - /include
+    config-opts:
+      - '-Ddefault_library=static'
+      - '-Dwith-util=false'
+      - '-Dwith-examples=false'
+      - '-Dwith-sd-bus-provider=no-daemon'
+      - '-Dinih:distro_install=false'
+    sources:
+      - type: git
+        url: 'https://github.com/FeralInteractive/gamemode.git'
+        tag: '1.6.1'
+  - name: taisei
+    buildsystem: meson
+    config-opts:
+      - '--wrap-mode=nodownload'
+      - '-Ddocs=false'
+      - '-Dstrip=false'
+    sources:
+      - type: file
+        path: org.taisei_project.Taisei.appdata.xml
+      - type: git
+        url: 'https://github.com/taisei-project/taisei.git'
+        tag: 'v1.3.2'
+      - type: git
+        url: 'https://github.com/taisei-project/cglm.git'
+        dest: 'subprojects/cglm'
+        branch: 'taisei-0.8.0'
+    post-install:
+      - >-
+        install -Dm644 ../org.taisei_project.Taisei.appdata.xml
+        /app/share/appdata/org.taisei_project.Taisei.appdata.xml
