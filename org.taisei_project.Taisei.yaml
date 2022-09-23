@@ -26,8 +26,13 @@ modules:
       - '-DENABLE_OPENSSL=OFF'
     sources:
       - type: archive
-        url: 'https://github.com/nih-at/libzip/archive/v1.7.3.tar.gz'
-        sha256: c0a086901dfc8bda0fb8695f2d3c8050ed140b7899536b9348bcc72b47b2f307
+        url: https://github.com/nih-at/libzip/archive/v1.9.2.tar.gz
+        sha256: 7f28eaec7a02ca099ea9dad88fc8023f7f6ddfca54b780040ff7fdb39d9efb3c
+        x-checker-data:
+          type: anitya
+          project-id: 10649
+          stable-only: true
+          url-template: https://github.com/nih-at/libzip/archive/v$version.tar.gz
   - name: gamemode
     buildsystem: meson
     cleanup:
@@ -42,7 +47,11 @@ modules:
     sources:
       - type: git
         url: 'https://github.com/FeralInteractive/gamemode.git'
-        tag: '1.6.1'
+        tag: '1.7'
+        commit: 4dc99dff76218718763a6b07fc1900fa6d1dafd9
+        x-checker-data:
+          type: git
+          tag-pattern: ^([\d.]+)$
   - name: taisei
     buildsystem: meson
     config-opts:
