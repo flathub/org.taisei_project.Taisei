@@ -6,11 +6,11 @@ command: taisei
 rename-icon: taisei
 rename-desktop-file: taisei.desktop
 finish-args:
-  - '--socket=pulseaudio'
-  - '--socket=wayland'
-  - '--socket=fallback-x11'
-  - '--share=ipc'
-  - '--device=all'
+  - --socket=pulseaudio
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --device=all
 modules:
   - name: libzip
     buildsystem: cmake-ninja
@@ -21,13 +21,13 @@ modules:
       - /lib/pkgconfig
       - /lib/cmake
     config-opts:
-      - '-DENABLE_COMMONCRYPTO=OFF'
-      - '-DENABLE_GNUTLS=OFF'
-      - '-DENABLE_OPENSSL=OFF'
+      - -DENABLE_COMMONCRYPTO=OFF
+      - -DENABLE_GNUTLS=OFF
+      - -DENABLE_OPENSSL=OFF
     sources:
       - type: archive
-        url: https://github.com/nih-at/libzip/archive/v1.9.2.tar.gz
-        sha256: 7f28eaec7a02ca099ea9dad88fc8023f7f6ddfca54b780040ff7fdb39d9efb3c
+        url: https://github.com/nih-at/libzip/archive/v1.10.0.tar.gz
+        sha256: 01f7272bb18965a9d59b9e5de7b390e04da8b6eb5bd7514e6fa32ae8dfe9df54
         x-checker-data:
           type: anitya
           project-id: 10649
@@ -39,14 +39,14 @@ modules:
       - /lib/pkgconfig
       - /include
     config-opts:
-      - '-Ddefault_library=static'
-      - '-Dwith-util=false'
-      - '-Dwith-examples=false'
-      - '-Dwith-sd-bus-provider=no-daemon'
-      - '-Dinih:distro_install=false'
+      - -Ddefault_library=static
+      - -Dwith-util=false
+      - -Dwith-examples=false
+      - -Dwith-sd-bus-provider=no-daemon
+      - -Dinih:distro_install=false
     sources:
       - type: git
-        url: 'https://github.com/FeralInteractive/gamemode.git'
+        url: https://github.com/FeralInteractive/gamemode.git
         tag: '1.7'
         commit: 4dc99dff76218718763a6b07fc1900fa6d1dafd9
         x-checker-data:
@@ -55,19 +55,19 @@ modules:
   - name: taisei
     buildsystem: meson
     config-opts:
-      - '--wrap-mode=nodownload'
-      - '-Ddocs=false'
-      - '-Dstrip=false'
+      - --wrap-mode=nodownload
+      - -Ddocs=false
+      - -Dstrip=false
     sources:
       - type: file
         path: org.taisei_project.Taisei.appdata.xml
       - type: git
-        url: 'https://github.com/taisei-project/taisei.git'
-        tag: 'v1.3.2'
+        url: https://github.com/taisei-project/taisei.git
+        tag: v1.3.2
       - type: git
-        url: 'https://github.com/taisei-project/cglm.git'
-        dest: 'subprojects/cglm'
-        branch: 'taisei-0.8.0'
+        url: https://github.com/taisei-project/cglm.git
+        dest: subprojects/cglm
+        branch: taisei-0.8.0
     post-install:
       - >-
         install -Dm644 ../org.taisei_project.Taisei.appdata.xml
