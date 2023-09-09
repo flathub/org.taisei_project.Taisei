@@ -1,16 +1,18 @@
 id: org.taisei_project.Taisei
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: taisei
-rename-icon: taisei
-rename-desktop-file: taisei.desktop
 finish-args:
   - '--socket=pulseaudio'
   - '--socket=wayland'
   - '--socket=fallback-x11'
   - '--share=ipc'
   - '--device=all'
+cleanup:
+  - '/lib/python3*'
+  - '/lib/debug/python3*'
+  - '*.a'
 modules:
   - name: libzip
     buildsystem: cmake-ninja
@@ -47,28 +49,24 @@ modules:
     sources:
       - type: git
         url: 'https://github.com/FeralInteractive/gamemode.git'
-        tag: '1.7'
-        commit: 4dc99dff76218718763a6b07fc1900fa6d1dafd9
+        commit: 1f28880509ad6ac619c58633a2d0c79f78ebe30a
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
+  - 'python3-zstandard.json'
   - name: taisei
     buildsystem: meson
     config-opts:
       - '--wrap-mode=nodownload'
-      - '-Ddocs=false'
+      - '-Ddocs=disabled'
       - '-Dstrip=false'
     sources:
-      - type: file
-        path: org.taisei_project.Taisei.appdata.xml
       - type: git
         url: 'https://github.com/taisei-project/taisei.git'
-        tag: 'v1.3.2'
+        tag: 'v1.4'
+        commit: ab6b26d8a52fde15c529b3ab2b00068afb88107a
       - type: git
         url: 'https://github.com/taisei-project/cglm.git'
         dest: 'subprojects/cglm'
-        branch: 'taisei-0.8.0'
-    post-install:
-      - >-
-        install -Dm644 ../org.taisei_project.Taisei.appdata.xml
-        /app/share/appdata/org.taisei_project.Taisei.appdata.xml
+        branch: 'taisei-0.9.0'
+        commit: 33b298b1e31c7383516e8658aa749af84f7ba3a8
