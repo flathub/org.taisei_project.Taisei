@@ -4,14 +4,14 @@ runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: taisei
 finish-args:
-  - '--socket=pulseaudio'
-  - '--socket=wayland'
-  - '--socket=fallback-x11'
-  - '--share=ipc'
-  - '--device=all'
+  - --socket=pulseaudio
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --device=all
 cleanup:
-  - '/lib/python3*'
-  - '/lib/debug/python3*'
+  - /lib/python3*
+  - /lib/debug/python3*
   - '*.a'
 modules:
   - name: libzip
@@ -23,9 +23,9 @@ modules:
       - /lib/pkgconfig
       - /lib/cmake
     config-opts:
-      - '-DENABLE_COMMONCRYPTO=OFF'
-      - '-DENABLE_GNUTLS=OFF'
-      - '-DENABLE_OPENSSL=OFF'
+      - -DENABLE_COMMONCRYPTO=OFF
+      - -DENABLE_GNUTLS=OFF
+      - -DENABLE_OPENSSL=OFF
     sources:
       - type: archive
         url: https://github.com/nih-at/libzip/archive/v1.9.2.tar.gz
@@ -41,32 +41,33 @@ modules:
       - /lib/pkgconfig
       - /include
     config-opts:
-      - '-Ddefault_library=static'
-      - '-Dwith-util=false'
-      - '-Dwith-examples=false'
-      - '-Dwith-sd-bus-provider=no-daemon'
-      - '-Dinih:distro_install=false'
+      - -Ddefault_library=static
+      - -Dwith-util=false
+      - -Dwith-examples=false
+      - -Dwith-sd-bus-provider=no-daemon
+      - -Dinih:distro_install=false
     sources:
       - type: git
-        url: 'https://github.com/FeralInteractive/gamemode.git'
-        commit: 1f28880509ad6ac619c58633a2d0c79f78ebe30a
+        url: https://github.com/FeralInteractive/gamemode.git
+        commit: 4dc99dff76218718763a6b07fc1900fa6d1dafd9
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
-  - 'python3-zstandard.json'
+        tag: '1.7'
+  - python3-zstandard.json
   - name: taisei
     buildsystem: meson
     config-opts:
-      - '--wrap-mode=nodownload'
-      - '-Ddocs=disabled'
-      - '-Dstrip=false'
+      - --wrap-mode=nodownload
+      - -Ddocs=disabled
+      - -Dstrip=false
     sources:
       - type: git
-        url: 'https://github.com/taisei-project/taisei.git'
-        tag: 'v1.4'
+        url: https://github.com/taisei-project/taisei.git
+        tag: v1.4
         commit: ab6b26d8a52fde15c529b3ab2b00068afb88107a
       - type: git
-        url: 'https://github.com/taisei-project/cglm.git'
-        dest: 'subprojects/cglm'
-        branch: 'taisei-0.9.0'
+        url: https://github.com/taisei-project/cglm.git
+        dest: subprojects/cglm
+        branch: taisei-0.9.0
         commit: 33b298b1e31c7383516e8658aa749af84f7ba3a8
