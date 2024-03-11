@@ -64,8 +64,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/taisei-project/taisei.git
-        tag: v1.4
-        commit: ab6b26d8a52fde15c529b3ab2b00068afb88107a
+        tag: v1.4.1
+        commit: 13aef2dfbc9e5fff3f591ddc8a4da239a75cf9c0
       - type: git
         url: https://github.com/taisei-project/cglm.git
         dest: subprojects/cglm
