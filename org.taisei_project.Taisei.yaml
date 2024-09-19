@@ -28,8 +28,8 @@ modules:
       - -DENABLE_OPENSSL=OFF
     sources:
       - type: archive
-        url: https://github.com/nih-at/libzip/archive/v1.10.1.tar.gz
-        sha256: d56d857d1c3ad4a7f3a4c01a51c6a6e5530e35ab93503f62276e8ba2b306186a
+        url: https://github.com/nih-at/libzip/archive/v1.11.1.tar.gz
+        sha256: e4cb6af8f9834e643541a9d6a899ccb176ee22938458c1ce6778ece16120ddf1
         x-checker-data:
           type: anitya
           project-id: 10649
@@ -49,11 +49,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/FeralInteractive/gamemode.git
-        commit: 5180d89e66830d87f69687b95fb86f622552b94b
+        commit: c54d6d4243b0dd0afcb49f2c9836d432da171a2b
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
-        tag: 1.8.1
+        tag: 1.8.2
   - python3-zstandard.json
   - name: taisei
     buildsystem: meson
