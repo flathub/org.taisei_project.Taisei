@@ -28,8 +28,8 @@ modules:
       - -DENABLE_OPENSSL=OFF
     sources:
       - type: archive
-        url: https://github.com/nih-at/libzip/archive/v1.11.1.tar.gz
-        sha256: e4cb6af8f9834e643541a9d6a899ccb176ee22938458c1ce6778ece16120ddf1
+        url: https://github.com/nih-at/libzip/archive/v1.11.2.tar.gz
+        sha256: 447dbc1d0e8c319d1e0abc34521d23bec483349c4be0b1cab0e17ef5cf6a4e82
         x-checker-data:
           type: anitya
           project-id: 10649
