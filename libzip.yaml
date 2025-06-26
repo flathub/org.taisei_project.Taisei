@@ -1,0 +1,21 @@
+name: libzip
+buildsystem: cmake-ninja
+cleanup:
+  - /bin
+  - /share
+  - /include
+  - /lib/pkgconfig
+  - /lib/cmake
+config-opts:
+  - -DENABLE_COMMONCRYPTO=OFF
+  - -DENABLE_GNUTLS=OFF
+  - -DENABLE_OPENSSL=OFF
+sources:
+  - type: archive
+    url: https://github.com/nih-at/libzip/archive/v1.11.4.tar.gz
+    sha256: 4844595615e2436e3cf1ed46a1b260fbdaf8b8fa8f2b594e8b5d8162c696b8b2
+    x-checker-data:
+      type: anitya
+      project-id: 10649
+      stable-only: true
+      url-template: https://github.com/nih-at/libzip/archive/v$version.tar.gz

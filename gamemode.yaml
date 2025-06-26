@@ -1,0 +1,18 @@
+name: gamemode
+buildsystem: meson
+cleanup:
+  - /lib/pkgconfig
+  - /include
+config-opts:
+  - -Ddefault_library=static
+  - -Dwith-util=false
+  - -Dwith-examples=false
+  - -Dwith-sd-bus-provider=no-daemon
+  - -Dinih:distro_install=false
+sources:
+  - type: git
+    url: https://github.com/FeralInteractive/gamemode.git
+    commit: c54d6d4243b0dd0afcb49f2c9836d432da171a2b
+    x-checker-data:
+      type: git
+      tag-pattern: ^([\d.]+)$
