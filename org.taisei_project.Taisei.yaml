@@ -17,6 +17,7 @@ modules:
   - libzip.yaml
   - gamemode.yaml
   - python3-zstandard.yaml
+  - sdl3.yaml
   - name: taisei
     buildsystem: meson
     config-opts:
