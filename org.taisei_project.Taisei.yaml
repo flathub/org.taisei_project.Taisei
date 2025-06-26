@@ -54,7 +54,7 @@ modules:
           type: git
           tag-pattern: ^([\d.]+)$
         tag: 1.8.2
-  - python3-zstandard.json
+  - python3-zstandard.yaml
   - name: taisei
     buildsystem: meson
     config-opts:
