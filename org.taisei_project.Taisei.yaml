@@ -12,6 +12,8 @@ finish-args:
 cleanup:
   - /lib/python3*
   - /lib/debug/python3*
+  - /lib*/*mimalloc*
+  - /lib/debug/lib*/*mimalloc*
   - '*.a'
 modules:
   - libzip.yaml
@@ -24,6 +26,11 @@ modules:
       - --wrap-mode=nodownload
       - -Ddocs=disabled
       - -Dstrip=false
+      - -Dr_sdlgpu=enabled
+      - -Dallocator=mimalloc
+      - -Dshader_transpiler=enabled
+      - -Dprefer_static=true
+      - -Ddefault_library=static
     sources:
       - type: git
         url: https://github.com/taisei-project/taisei.git
@@ -34,3 +41,28 @@ modules:
         dest: subprojects/cglm
         tag: v0.9.4
         commit: 1796cc5ce298235b615dc7a4750b8c3ba56a05dd
+      - type: git
+        url: https://github.com/taisei-project/mimalloc.git
+        dest: subprojects/mimalloc
+        branch: taisei-3.0.3
+        commit: 3212bd676a6e119b000ccbf3c124925005198327
+      - type: git
+        url: https://github.com/taisei-project/glslang.git
+        dest: subprojects/glslang
+        branch: meson-15.0.0
+        commit: bd1ee34b4c380bd3d5a35d65bd2fec98f145e8e3
+      - type: git
+        url: https://github.com/taisei-project/SPIRV-Cross.git
+        dest: subprojects/SPIRV-Cross
+        branch: meson-1.3.296.0
+        commit: d8e2b479684aaf866da21b2bda41c883ff628003
+      - type: git
+        url: https://github.com/taisei-project/SPIRV-Headers.git
+        dest: subprojects/SPIRV-Headers
+        branch: meson-sdk-1.3.290.0
+        commit: 6d06366c9fafe656b0e9b429e3802dde66a609d1
+      - type: git
+        url: https://github.com/taisei-project/SPIRV-Tools.git
+        dest: subprojects/SPIRV-Tools
+        branch: meson-2024.3
+        commit: 867816dbef196e700bfae9a76badd6b3375f2af7
