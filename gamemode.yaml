@@ -16,3 +16,4 @@ sources:
     x-checker-data:
       type: git
       tag-pattern: ^([\d.]+)$
+    tag: 1.8.2
