@@ -13,8 +13,8 @@ config-opts:
   - -DCMAKE_INSTALL_LIBDIR:PATH=lib
 sources:
   - type: archive
-    url: https://github.com/libsdl-org/SDL/releases/download/release-3.2.18/SDL3-3.2.18.tar.gz
-    sha256: 1a775bde924397a8e0c08bfda198926c17be859d0288ad0dec1dea1b2ee04f8f
+    url: https://github.com/libsdl-org/SDL/releases/download/release-3.2.22/SDL3-3.2.22.tar.gz
+    sha256: f29d00cbcee273c0a54f3f32f86bf5c595e8823a96b1d92a145aac40571ebfcc
     x-checker-data:
       type: anitya
       project-id: 375746
