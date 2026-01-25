@@ -1,6 +1,6 @@
 id: org.taisei_project.Taisei
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: taisei
 finish-args:
@@ -11,15 +11,12 @@ finish-args:
   - --device=all
 cleanup:
   - /lib/python3*
-  - /lib/debug/python3*
   - /lib*/*mimalloc*
-  - /lib/debug/lib*/*mimalloc*
   - '*.a'
 modules:
   - libzip.yaml
   - gamemode.yaml
   - python3-zstandard.yaml
-  - sdl3.yaml
   - name: taisei
     buildsystem: meson
     config-opts:
