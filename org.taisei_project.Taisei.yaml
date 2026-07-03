@@ -14,9 +14,8 @@ cleanup:
   - /lib*/*mimalloc*
   - '*.a'
 modules:
-  - libzip.yaml
   - gamemode.yaml
-  - python3-zstandard.yaml
+  - python3-backports.zstd.yaml
   - name: taisei
     buildsystem: meson
     config-opts:
@@ -31,30 +30,40 @@ modules:
     sources:
       - type: git
         url: https://github.com/taisei-project/taisei.git
-        tag: v1.4.4
-        commit: 6a484e6e61cc51a22a9943762dc2ff6883914f38
+        tag: v1.4.5
+        commit: 57a8f17c92cffc7ee1f6f7e52e4ce02fa5868abd
       - type: git
         url: https://github.com/taisei-project/cglm.git
         dest: subprojects/cglm
-        tag: v0.9.4
-        commit: 1796cc5ce298235b615dc7a4750b8c3ba56a05dd
+        # branch: v0.9.6
+        commit: 144d1e7c29b3b0c6dede7917a0476cc95248559c
       - type: git
         url: https://github.com/taisei-project/mimalloc.git
         dest: subprojects/mimalloc
-        commit: 3212bd676a6e119b000ccbf3c124925005198327
+        # branch: taisei-3.3.2
+        commit: 0e3a616d5e47923c8a50190cadd8408189cfd5b4
       - type: git
         url: https://github.com/taisei-project/glslang.git
         dest: subprojects/glslang
+        # branch: meson-15.0.0
         commit: bd1ee34b4c380bd3d5a35d65bd2fec98f145e8e3
       - type: git
         url: https://github.com/taisei-project/SPIRV-Cross.git
         dest: subprojects/SPIRV-Cross
+        # branch: meson-1.3.296.0
         commit: d8e2b479684aaf866da21b2bda41c883ff628003
       - type: git
         url: https://github.com/taisei-project/SPIRV-Headers.git
         dest: subprojects/SPIRV-Headers
+        # branch: meson-sdk-1.3.290.0
         commit: 6d06366c9fafe656b0e9b429e3802dde66a609d1
       - type: git
         url: https://github.com/taisei-project/SPIRV-Tools.git
         dest: subprojects/SPIRV-Tools
+        # branch: meson-2024.3
         commit: 867816dbef196e700bfae9a76badd6b3375f2af7
+      - type: git
+        url: https://github.com/taisei-project/libunibreak.git
+        dest: subprojects/libunibreak
+        # branch: taisei-6.1
+        commit: a7935c1cc35c4f101248fe87f3e1160e978f2cdf

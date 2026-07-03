@@ -1,0 +1,10 @@
+# Generated with flatpak-pip-generator --yaml --runtime=org.freedesktop.Sdk//25.08 backports.zstd --output python3-backports.zstd
+name: python3-backports.zstd
+buildsystem: simple
+build-commands:
+  - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+    --prefix=${FLATPAK_DEST} "backports.zstd" --no-build-isolation
+sources:
+  - type: file
+    url: https://files.pythonhosted.org/packages/8e/b5/5a873da082bd08acd6a497f7aae224e94a7c27fa8f24488089cc50a16c84/backports_zstd-1.6.0.tar.gz
+    sha256: 80a7859ffe70bf239d7a2ce15293bdeb5b4280ff7dc326ffab312b0e254dbb24
