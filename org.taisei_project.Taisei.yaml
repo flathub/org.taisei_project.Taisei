@@ -30,8 +30,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/taisei-project/taisei.git
-        tag: v1.4.5
-        commit: 57a8f17c92cffc7ee1f6f7e52e4ce02fa5868abd
+        tag: v1.4.6
+        commit: 5bfc9b842fe6d9bb8d1610f76f442ba07c72c4cf
       - type: git
         url: https://github.com/taisei-project/cglm.git
         dest: subprojects/cglm
